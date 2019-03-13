@@ -10,6 +10,7 @@ import { CreditCardModel } from '../models/credit-card.model';
 })
 export class CreditCardComponent implements OnInit {
   showDateOnly = true;
+  selectedCardTime: string;
 
   @Input()
   creditCardForm: FormGroup;
@@ -28,8 +29,9 @@ export class CreditCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  setCardType(type: string) {
+  setCardType(type: string, name: string) {
     const control = this.creditCardForm.get('type');
     control.patchValue(type);
+    this.selectedCardTime = name;
   }
 }

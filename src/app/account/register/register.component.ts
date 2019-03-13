@@ -9,6 +9,7 @@ import { CreditCardComponent } from '../../shared/credit-card/credit-card.compon
 import { CreditCardModel } from '../../shared/models/credit-card.model';
 import { AddressComponent } from '../../shared/address/address.component';
 import { AddressModel } from '../../shared/models/address.model';
+import { getFormValidationErrors } from '../../shared/get-form-validation-errors';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +18,7 @@ import { AddressModel } from '../../shared/models/address.model';
 })
 export class RegisterComponent implements OnInit {
   activePanel = 'contact';
-
+  modelState: any;
   registerForm: FormGroup;
 
   constructor(private fb: FormBuilder) { }
@@ -31,4 +32,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    if (!this.registerForm.valid) {
+      const errors = getFormValidationErrors(this.registerForm.controls);
+    }
+  }
 }

@@ -24,7 +24,7 @@
                 	<div class="login-page-content">
                 		<div class="login-form">
                 			<h3>Sign Up</h3>
-							          <form [formGroup]="registerForm">
+							          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                           <ngb-accordion [closeOthers]="true" [activeIds]="activePanel">
                             <ngb-panel id="contact" title="Contact Details">
                               <ng-template ngbPanelContent>
@@ -44,9 +44,9 @@
                               </ng-template>
                             </ngb-panel>
                           </ngb-accordion>
-
+                          <validation-errors [model-state]="modelState"></validation-errors>
 								          <div class="log-btn">
-									          <button type="submit"><i class="fa fa-check-square"></i> Sign Up</button>
+									          <button type="submit" [disabled]="!registerForm.valid"><i class="fa fa-check-square"></i> Sign Up</button>
 								          </div>
 							          </form>
                 		</div>

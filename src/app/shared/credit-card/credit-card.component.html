@@ -12,10 +12,13 @@
       <div ngbDropdown class="d-inline-block">
         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Card Type</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem (click)="setCardType('VISA')">VISA</button>
-          <button ngbDropdownItem (click)="setCardType('MasterCard')">Master Card</button>
-          <button ngbDropdownItem (click)="setCardType('AmericanExpress')">American Express</button>
+          <button ngbDropdownItem (click)="setCardType('VISA', 'VISA')">VISA</button>
+          <button ngbDropdownItem (click)="setCardType('MasterCard', 'Master Card')">Master Card</button>
+          <button ngbDropdownItem (click)="setCardType('AmericanExpress', 'American Express')">American Express</button>
         </div>
+      </div>
+      <div class="text-info" *ngIf="selectedCardTime">
+        {{selectedCardTime}}
       </div>
     </div>
   </div>
@@ -35,7 +38,9 @@
                name="expirationTime" formControlName="expirationTime"
                ngbDatepicker #d="ngbDatepicker">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+            <i class="fa fa-calendar"></i>
+          </button>
         </div>
       </div>
     </div>
