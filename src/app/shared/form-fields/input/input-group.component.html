@@ -1,0 +1,22 @@
+﻿<div class="form-group">
+    <label [attr.for]="name" class="cols-sm-2 control-label" *ngIf="label">{{label}}</label>
+    <div [class]="cssCol">
+        <div class="input-group">
+            <span class="input-group-addon" *ngIf="icon">
+                <i [ngClass]="['fa', icon]" aria-hidden="true"></i>
+            </span>
+            <input [attr.id]="name"
+                   [attr.name]="name"
+                   [attr.type]="type"
+                   [attr.minlength]="minlength"
+                   [attr.maxlength]="maxlength"
+                   [attr.placeholder]="placeholder"
+                   [required]="required"
+                   [disabled]="disabled"
+                   [(ngModel)]="value"
+                   class="form-control"
+                   (blur)="onBlur()">
+        </div>
+    </div>
+    <ng-content></ng-content>
+</div>

@@ -1,0 +1,24 @@
+﻿<div class="form-group">
+    <label [attr.for]="name" *ngIf="label">{{label}}</label>
+    <input *ngIf="type !== 'textarea'"
+               [attr.id]="name"
+               [attr.name]="name"
+               [attr.type]="type"
+               [attr.minlength]="minlength"
+               [attr.maxlength]="maxlength"
+               [attr.placeholder]="placeholder"
+               [required]="required"
+               [disabled]="disabled"
+               [(ngModel)]="value"
+               class="form-control"
+               (blur)="onBlur()">
+
+    <textarea *ngIf="type === 'textarea'"
+                  [attr.id]="name"
+                  [attr.name]="name"
+                  [required]="required"
+                  [(ngModel)]="value"
+                  class="form-control"
+                  (blur)="onBlur()"></textarea>
+    <ng-content></ng-content>
+</div>

@@ -1,0 +1,13 @@
+{
+  "apiBaseUrl" : "https://localhost:44320",
+  "url": {
+    "auth": "api/auth",
+    "availableCar": "api/availablecar"
+  },
+  "facebook": {
+    "appId": "822182081727248"
+  },
+  "google": {
+    "clientId": "237634769595-ni11m1mj724d70morptgj3io4bjoemc1"
+  }
+}

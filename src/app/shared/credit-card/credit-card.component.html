@@ -1,0 +1,43 @@
+<ng-container [formGroup]="creditCardForm">
+  <div>
+    <input-simple type="text"
+                  formControlName="nameOnCard" name="nameOnCard"
+                  placeholder="Name on card"
+                  required>
+      <err-required message="Name on card is required"></err-required>
+    </input-simple>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Card Type</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem (click)="setCardType('VISA')">VISA</button>
+          <button ngbDropdownItem (click)="setCardType('MasterCard')">Master Card</button>
+          <button ngbDropdownItem (click)="setCardType('AmericanExpress')">American Express</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <input-simple type="text"
+                  formControlName="creditCardNumber" name="creditCardNumber"
+                  placeholder="Credit card number"
+                  required>
+      <err-required message="Credit card number is required"></err-required>
+    </input-simple>
+  </div>
+  <div>
+    <div class="form-group">
+      <label>Expiration Time</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="expirationTime" formControlName="expirationTime"
+               ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

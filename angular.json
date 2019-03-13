@@ -13,7 +13,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/car-rental",
+            "baseHref": "/car-rental/",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +24,33 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/plugins/gijgo.css",
+              "src/plugins/magnific-popup.css",
+              "src/plugins/owl.carousel.min.css",
+              "src/plugins/slicknav.min.css",
+              "src/styles.css",
+              "src/reset.css",
+              "src/responsive.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/jquery-migrate/dist/jquery-migrate.js",
+              "src/plugins/popper.min.js",
+              "src/plugins/counterup.min.js",
+              "src/plugins/gijgo.js",
+              "src/plugins/isotope.min.js",
+              "src/plugins/magnific-popup.min.js",
+              "src/plugins/mb.YTPlayer.js",
+              "src/plugins/owl.carousel.min.js",
+              "src/plugins/slicknav.min.js",
+              "src/plugins/vegas.min.js",
+              "src/plugins/waypoints.min.js",
+              "src/amplify.js",
+              //"src/main.js",
+               "node_modules/bootstrap/dist/js/bootstrap.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

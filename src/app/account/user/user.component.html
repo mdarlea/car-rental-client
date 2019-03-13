@@ -1,0 +1,46 @@
+<ng-container [formGroup]="userForm">
+  <div class="name">
+    <div class="row">
+	    <div class="col-md-6">
+        <input-simple type="text"
+                    formControlName="firstName" name="firstName"
+                    placeholder="First Name"
+                    required>
+          <err-required message="First name is required"></err-required>
+        </input-simple>
+		  </div>
+		  <div class="col-md-6">
+        <input-simple type="text"
+                    formControlName="lastName" name="lastName"
+                    placeholder="Last Name"
+                    required>
+          <err-required message="Last name is required"></err-required>
+        </input-simple>
+		  </div>
+    </div>
+  </div>
+  <div>
+    <input-simple type="email"
+                  formControlName="email" name="email"
+                  placeholder="Email"
+                  required email>
+      <err-required message="Email address is required"></err-required>
+      <err-email message="Invalid e-mail address"></err-email>
+    </input-simple>
+  </div>
+  <div class="password">
+    <input-simple type="password"
+                  formControlName="password" name="password"
+                  placeholder="Password"
+                  required minlength="10">
+      <err-required message="Password is required"></err-required>
+      <err-minlength message="Password must have at least 10 characters"></err-minlength>
+    </input-simple>
+  </div>
+  <div class="username">
+    <input-simple type="text"
+                  formControlName="phoneNumber" name="phoneNumber"
+                  placeholder="Phone Number">
+    </input-simple>
+  </div>
+</ng-container>

@@ -12,10 +12,11 @@
     "importHelpers": true,
     "target": "es5",
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "typings"
     ],
     "lib": [
-      "es2018",
+      "es2016",
       "dom"
     ]
   }

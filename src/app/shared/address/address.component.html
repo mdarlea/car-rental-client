@@ -1,0 +1,38 @@
+<ng-container [formGroup]="addressForm">
+<div class="row">
+    <input-simple name="streetAddress"
+           formControlName="streetAddress"
+           class="col-sm-9 col-xs-12"
+           placeholder="Street Address"
+           required>
+      <err-required message="Street address is required"></err-required>
+    </input-simple>
+    <input-simple name="suiteNumber"
+           formControlName="suiteNumber"
+           class="col-sm-3 col-xs-6"
+           placeholder="Apt/Suite">
+    </input-simple>
+</div>
+<input-simple name="city"
+       formControlName="city"
+       placeholder="City"
+       required>
+  <err-required message="City is required"></err-required>
+</input-simple>
+<div class="row">
+    <input-simple name="state"
+           formControlName="state"
+           class="col-sm-6"
+           placeholder="State or province">
+    </input-simple>
+    <input-simple name="zip"
+           formControlName="zip"
+           class="col-sm-6"
+           placeholder="Zip code"
+           required
+           maxlength="10">
+      <err-required message="Zip code is required"></err-required>
+      <err-maxlength message="Zip code cannot be longer than 10 characters"></err-maxlength>
+    </input-simple>
+</div>
+</ng-container>

@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/app",
-    "types": []
+    "types": ["amplifyjs", "moment", "jquery", "googlemaps"]
   },
   "exclude": [
     "test.ts",

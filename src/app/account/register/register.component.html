@@ -1,0 +1,61 @@
+    <!--== Page Title Area Start ==-->
+    <section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Register</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+            </div>
+        </div>
+    </section>
+    <!--== Page Title Area End ==-->
+
+    <!--== Register Page Content Start ==-->
+    <section id="lgoin-page-wrap" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-8 m-auto">
+                	<div class="login-page-content">
+                		<div class="login-form">
+                			<h3>Sign Up</h3>
+							          <form [formGroup]="registerForm">
+                          <ngb-accordion [closeOthers]="true" [activeIds]="activePanel">
+                            <ngb-panel id="contact" title="Contact Details">
+                              <ng-template ngbPanelContent>
+                                <app-user [userForm]="registerForm.get('user')"></app-user>
+                              </ng-template>
+                            </ngb-panel>
+                            <ngb-panel id="driverLicense" title="Driver License">
+                              <ng-template ngbPanelContent>
+                                <app-driver-license [driverLicenseForm]="registerForm.get('driverLicense')"></app-driver-license>
+                              </ng-template>
+                            </ngb-panel>
+                            <ngb-panel id="creditCard" title="Credit Card">
+                              <ng-template ngbPanelContent>
+                                <app-credit-card [creditCardForm]="registerForm.get('creditCard')"></app-credit-card>
+                                <div class="text-info">Billing Address</div>
+                                <app-address [addressForm]="registerForm.get('billingAddress')"></app-address>
+                              </ng-template>
+                            </ngb-panel>
+                          </ngb-accordion>
+
+								          <div class="log-btn">
+									          <button type="submit"><i class="fa fa-check-square"></i> Sign Up</button>
+								          </div>
+							          </form>
+                		</div>
+                		<div class="create-ac">
+                			<p>Have an account? <a routerLink="/account/login" routerLinkActive="active">Sign In</a></p>
+                		</div>
+                	</div>
+                </div>
+        	</div>
+        </div>
+    </section>
+    <!--== Register Page Content End ==-->

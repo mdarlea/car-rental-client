@@ -1,0 +1,67 @@
+.or {
+	color: #000;
+	display: block;
+	font-weight: 600;
+	margin: 20px 0;
+	position: relative;
+	text-transform: uppercase;
+}
+
+.or::after {
+	background-color: #ccc;
+	content: "";
+	height: 1px;
+	left: 35px;
+	position: absolute;
+	top: 10px;
+	width: 120px;
+}
+
+.or::before {
+	background-color: #ccc;
+	content: "";
+	height: 1px;
+	right: 35px;
+	position: absolute;
+	top: 10px;
+	width: 120px;
+}
+
+.login-with-btn {
+	background: -webkit-gradient(linear, left top, left bottom, from(#3b5998), to(#344e86));
+	background: linear-gradient(to bottom, #3b5998, #344e86);
+	border-radius: 3px;
+	color: #fff;
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	margin: 0 30px;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.login-with-btn.facebook:hover {
+	background: -webkit-gradient(linear, left top, left bottom, from(#344e86), to(#3b5998));
+	background: linear-gradient(to bottom, #344e86, #3b5998);
+}
+
+.login-with-btn.google {
+	background: -webkit-gradient(linear, left top, left bottom, from(#DC4A38), to(#Dd5b21));
+	background: linear-gradient(to bottom, #DC4A38, #Dd5b21);
+	margin-top: 15px;
+}
+
+.login-with-btn.google:hover {
+	background: -webkit-gradient(linear, left top, left bottom, from(#Dd5b21), to(#DC4A38));
+	background: linear-gradient(to bottom, #Dd5b21, #DC4A38);
+}
+
+.login-with-btn:hover {
+	color: #fff;
+}
+
+.login-with-btn .fa {
+	margin-right: 10px;
+}

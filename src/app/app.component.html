@@ -1,21 +1,98 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!--== Header Area Start ==-->
+<header id="header-area" class="fixed-top" #headerArea>
+    <!--== Header Top Start ==-->
+    <div id="header-top" class="d-none d-xl-block">
+        <div class="container">
+            <div class="row">
+                <!--== Single HeaderTop Start ==-->
+                <div class="col-lg-3 text-left">
+                    <i class="fa fa-map-marker"></i> Timisoara, RO
+                </div>
+                <!--== Single HeaderTop End ==-->
+                <!--== Single HeaderTop Start ==-->
+                <div class="col-lg-3 text-center">
+                    <i class="fa fa-mobile"></i> +40 745-288-913
+                </div>
+                <!--== Single HeaderTop End ==-->
 
+                <!--== Single HeaderTop Start ==-->
+                <div class="col-lg-3 text-center">
+                    <i class="fa fa-clock-o"></i> Mon-Fri 09.00 - 17.00
+                </div>
+                <!--== Single HeaderTop End ==-->
+
+                <!--== Social Icons Start ==-->
+                <div class="col-lg-3 text-right">
+                    <div class="header-social-icons">
+                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <!--== Social Icons End ==-->
+            </div>
+        </div>
+    </div>
+    <!--== Header Top End ==-->
+
+    <!--== Header Bottom Start ==-->
+    <div id="header-bottom">
+        <div class="container">
+            <div class="row">
+                <!--== Logo Start ==-->
+                <div class="col-lg-4">
+                    <a routerLink="/" routerLinkActive="active" class="logo">
+                        <img src="assets/images/logo.png" alt="JSOFT">
+                    </a>
+                </div>
+                <!--== Logo End ==-->
+
+                <!--== Main Menu Start ==-->
+                <div class="col-lg-8 d-none d-xl-block">
+                    <nav class="mainmenu alignright" #mainmenu>
+                        <ul>
+                            <li class="active">
+                              <a routerLink="/" routerLinkActive="active">Home</a>
+                            </li>
+                            <ng-container *ngIf="isLoggedIn()">
+                              <li>
+                                <a routerLink="/account/" routerLinkActive="active">Your Account</a>
+                              </li>
+                              <li>
+                                <a href="javascript:void(0)" (click)="logOut($event)">Logout</a>
+                              </li>
+                            </ng-container>
+                        </ul>
+                    </nav>
+                </div>
+                <!--== Main Menu End ==-->
+            </div>
+        </div>
+    </div>
+    <!--== Header Bottom End ==-->
+</header>
+<!--== Header Area End ==-->
+<app-loader></app-loader>
 <router-outlet></router-outlet>
+
+<!--== Footer Area Start ==-->
+<section id="footer-area">
+  <div class="footer-bottom-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--== Scroll Top Area Start ==-->
+<div class="scroll-top" #scrollTop (click)="scrollToTop()">
+  <img src="assets/images/scroll-top.png" alt="JSOFT">
+</div>
+<!--== Scroll Top Area End ==-->

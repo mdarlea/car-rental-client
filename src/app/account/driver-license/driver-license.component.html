@@ -1,0 +1,24 @@
+<ng-container [formGroup]="driverLicenseForm">
+  <div>
+    <input-simple type="text"
+                  formControlName="driverLicenseNumber" name="driverLicenseNumber"
+                  placeholder="Driver license number"
+                  required>
+      <err-required message="Driver license number is required"></err-required>
+    </input-simple>
+  </div>
+  <div>
+    <input-simple type="text"
+                  formControlName="stateOfIssue" name="stateOfIssue"
+                  placeholder="State of issue">
+    </input-simple>
+  </div>
+  <div>
+    <input-simple type="text"
+                  formControlName="countryOfIssue" name="countryOfIssue"
+                  placeholder="Country of issue"
+                  required>
+      <err-required message="Country of issue is required"></err-required>
+    </input-simple>
+  </div>
+</ng-container>
