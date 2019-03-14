@@ -3134,3 +3134,7 @@ input-simple.ng-invalid.ng-pristine input,
 input-group.ng-invalid.ng-pristine input {
   border-left: 1;
 }
+
+.card {
+  background-color: transparent;
+}

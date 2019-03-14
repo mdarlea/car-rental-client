@@ -15,6 +15,8 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('scrollTop') scrollTop: ElementRef;
   @ViewChild('mainmenu') mainmenu: ElementRef;
 
+  fixTotop = false;
+
   constructor(private loaderSvc: LoaderService,
               private router: Router,
               private userSvc: UserService,
@@ -40,9 +42,9 @@ export class AppComponent implements AfterViewInit {
         $(window).scroll(() => {
             // Header Fix Js Here
             if ($(window).scrollTop() >= 200) {
-                $(this.headerArea.nativeElement).addClass('fixTotop');
+                this.fixTotop = true;
             } else {
-                $(this.headerArea.nativeElement).removeClass('fixTotop');
+                this.fixTotop = false;
             }
 
             // Scroll top Js Here

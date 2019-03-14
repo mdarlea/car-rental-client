@@ -8,7 +8,8 @@ import {
     RequiredValidationErrorComponent,
     MinLengthValidationErrorComponent,
     MaxLengthValidationErrorComponent,
-    PatternValidationErrorComponent
+    PatternValidationErrorComponent,
+    EmailValidationErrorComponent
 } from './validation-error.components';
 import { TimeValidationErrorComponent } from './time-validation-error.component';
 import { ValidationErrorsComponent} from './validation-errors.component';
@@ -22,6 +23,7 @@ import { ValidationErrorsComponent} from './validation-errors.component';
         MinLengthValidationErrorComponent,
         MaxLengthValidationErrorComponent,
         PatternValidationErrorComponent,
+        EmailValidationErrorComponent,
         TimeValidationErrorComponent
     ],
     exports: [
@@ -31,6 +33,7 @@ import { ValidationErrorsComponent} from './validation-errors.component';
         MinLengthValidationErrorComponent,
         MaxLengthValidationErrorComponent,
         PatternValidationErrorComponent,
+        EmailValidationErrorComponent,
         TimeValidationErrorComponent
     ]
 })

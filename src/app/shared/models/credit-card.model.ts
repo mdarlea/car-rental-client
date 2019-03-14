@@ -3,5 +3,5 @@ export class CreditCardModel {
   type: string;
   creditCardNumber: string;
   nameOnCard: string;
-  expirationTime: string;
+  expirationTime: any;
 }

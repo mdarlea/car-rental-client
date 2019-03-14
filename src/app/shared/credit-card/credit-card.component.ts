@@ -15,16 +15,27 @@ export class CreditCardComponent implements OnInit {
   @Input()
   creditCardForm: FormGroup;
 
+  @Input()
+  submitted: boolean;
+
   get f() { return this.creditCardForm.controls; }
 
   static buildCreaditCard(fb: FormBuilder, creditCard: CreditCardModel): FormGroup {
-    return fb.group({
+    const group = fb.group({
       id: creditCard.id,
       type: [creditCard.type, Validators.required],
       creditCardNumber: [creditCard.creditCardNumber, Validators.required],
       nameOnCard: [creditCard.nameOnCard, Validators.required],
-      expirationTime: [creditCard.expirationTime, Validators.required]
+      expirationTime: [null, Validators.required]
     });
+    if (creditCard.expirationTime) {
+      const date = new Date(creditCard.expirationTime);
+
+      // set the date
+      const control = group.get('expirationTime');
+      control.setValue({year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate()});
+    }
+    return group;
   }
   constructor() { }
 

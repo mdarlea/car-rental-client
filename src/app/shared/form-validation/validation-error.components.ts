@@ -76,7 +76,7 @@ export class PatternValidationErrorComponent extends ValidationErrorComponent {
                     {{message}}
                   </div>`
 })
-@ValidationType(PatternValidator)
+@ValidationType(EmailValidator)
 export class EmailValidationErrorComponent extends ValidationErrorComponent {
     constructor(
         @Host() control: NgControl,

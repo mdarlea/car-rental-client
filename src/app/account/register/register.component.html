@@ -38,7 +38,9 @@
                             </ngb-panel>
                             <ngb-panel id="creditCard" title="Credit Card">
                               <ng-template ngbPanelContent>
-                                <app-credit-card [creditCardForm]="registerForm.get('creditCard')"></app-credit-card>
+                                <app-credit-card [creditCardForm]="registerForm.get('creditCard')"
+                                                 [submitted]="submitted">
+                                </app-credit-card>
                                 <div class="text-info">Billing Address</div>
                                 <app-address [addressForm]="registerForm.get('billingAddress')"></app-address>
                               </ng-template>
@@ -47,7 +49,7 @@
                           <app-spinner *ngIf="processing"></app-spinner>
                           <validation-errors [model-state]="modelState"></validation-errors>
 								          <div class="log-btn">
-									          <button type="submit" [disabled]="!registerForm.valid"><i class="fa fa-check-square"></i> Sign Up</button>
+									          <button type="submit" ><i class="fa fa-check-square"></i> Sign Up</button>
 								          </div>
 							          </form>
                 		</div>

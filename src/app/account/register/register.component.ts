@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as _ from 'lodash';
 
 import { UserComponent } from '../user/user.component';
 import { UserModel } from '../shared/user.model';
@@ -24,6 +25,7 @@ export class RegisterComponent implements OnInit {
   modelState: any;
   registerForm: FormGroup;
   processing = false;
+  submitted = false;
 
   constructor(private fb: FormBuilder, private authSvc: AuthService, private router: Router) { }
 
@@ -37,11 +39,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     if (!this.registerForm.valid) {
       const errors = getFormValidationErrors(this.registerForm.controls);
     }
-    const model = this.registerForm.value as CreateApplicationUserModel;
+    const model = _.cloneDeep(this.registerForm.value) as CreateApplicationUserModel;
     model.password = model.user.password;
+    model.creditCard.expirationTime = this.convertDate(model.creditCard.expirationTime);
 
     this.processing = true;
     this.authSvc.register(model).subscribe(user => {
@@ -53,5 +57,10 @@ export class RegisterComponent implements OnInit {
       this.modelState = error;
       this.processing = false;
     });
+  }
+
+  private convertDate(date: any): string {
+    return (date) ? (new Date(date.year, date.month - 1, date.day)).toLocaleDateString()
+            : null;
   }
 }
