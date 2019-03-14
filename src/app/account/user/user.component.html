@@ -4,17 +4,13 @@
 	    <div class="col-md-6">
         <input-simple type="text"
                     formControlName="firstName" name="firstName"
-                    placeholder="First Name"
-                    required>
-          <err-required message="First name is required"></err-required>
+                    placeholder="First Name">
         </input-simple>
 		  </div>
 		  <div class="col-md-6">
         <input-simple type="text"
                     formControlName="lastName" name="lastName"
-                    placeholder="Last Name"
-                    required>
-          <err-required message="Last name is required"></err-required>
+                    placeholder="Last Name">
         </input-simple>
 		  </div>
     </div>
@@ -22,19 +18,13 @@
   <div>
     <input-simple type="email"
                   formControlName="email" name="email"
-                  placeholder="Email"
-                  required email>
-      <err-required message="Email address is required"></err-required>
-      <err-email message="Invalid e-mail address"></err-email>
+                  placeholder="Email">
     </input-simple>
   </div>
   <div class="password">
     <input-simple type="password"
                   formControlName="password" name="password"
-                  placeholder="Password"
-                  required minlength="10">
-      <err-required message="Password is required"></err-required>
-      <err-minlength message="Password must have at least 10 characters"></err-minlength>
+                  placeholder="Password">
     </input-simple>
   </div>
   <div class="username">
@@ -42,5 +32,14 @@
                   formControlName="phoneNumber" name="phoneNumber"
                   placeholder="Phone Number">
     </input-simple>
+  </div>
+  <div *ngIf="submitted && !userForm.valid" class="alert alert-danger">
+    <div *ngIf="f.firstName.errors?.required">First name is required</div>
+    <div *ngIf="f.lastName.errors?.required">Last name is required</div>
+    <div *ngIf="f.email.errors?.required">Email address is required</div>
+    <div *ngIf="f.email.errors?.email">Invalid e-mail address</div>
+    <div *ngIf="f.password.errors?.required">Password is required</div>
+    <div *ngIf="f.password.errors?.minLength">Password must have at least 10 characters</div>
+    <div *ngIf="f.phoneNumber.errors?.required">Phone number is required</div>
   </div>
 </ng-container>

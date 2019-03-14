@@ -12,6 +12,11 @@ export class AddressComponent implements OnInit {
   @Input()
   addressForm: FormGroup;
 
+  @Input()
+  submitted: boolean;
+
+  get f() { return this.addressForm.controls; }
+
   static buildAddress(fb: FormBuilder, address: AddressModel): FormGroup {
     return fb.group({
       id: address.id,
@@ -19,7 +24,7 @@ export class AddressComponent implements OnInit {
       suiteNumber: address.suiteNumber,
       city: [address.city, Validators.required],
       state: address.state,
-      zip: [address.zip, Validators.required]
+      zip: [address.zip, [Validators.required, Validators.maxLength(10)]]
     });
   }
 

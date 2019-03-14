@@ -12,9 +12,14 @@ export class UserComponent implements OnInit {
   @Input()
   userForm: FormGroup;
 
+  @Input()
+  submitted: boolean;
+
+  get f() { return this.userForm.controls; }
+
   static buildUser(fb: FormBuilder, user: UserModel): FormGroup {
     return fb.group({
-      email: [user.email, Validators.required],
+      email: [user.email, [Validators.required, Validators.email]],
       password: [user.password, [Validators.required, Validators.minLength(10)]],
       firstName: [user.firstName, Validators.required],
       lastName: [user.lastName, Validators.required],

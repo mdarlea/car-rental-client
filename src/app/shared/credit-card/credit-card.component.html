@@ -2,19 +2,17 @@
   <div>
     <input-simple type="text"
                   formControlName="nameOnCard" name="nameOnCard"
-                  placeholder="Name on card"
-                  required>
-      <err-required message="Name on card is required"></err-required>
+                  placeholder="Name on card">
     </input-simple>
   </div>
   <div class="row">
     <div class="col">
       <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Card Type</button>
+        <button class="btn btn-outline-primary" id="dropdownBasic1" (click)="preventDefault($event)" ngbDropdownToggle>Card Type</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem (click)="setCardType('VISA', 'VISA')">VISA</button>
-          <button ngbDropdownItem (click)="setCardType('MasterCard', 'Master Card')">Master Card</button>
-          <button ngbDropdownItem (click)="setCardType('AmericanExpress', 'American Express')">American Express</button>
+          <button ngbDropdownItem (click)="setCardType($event, 'VISA')">VISA</button>
+          <button ngbDropdownItem (click)="setCardType($event, 'MasterCard')">Master Card</button>
+          <button ngbDropdownItem (click)="setCardType($event, 'AmericanExpress')">American Express</button>
         </div>
       </div>
       <div class="text-info" *ngIf="selectedCardTime">
@@ -25,9 +23,7 @@
   <div>
     <input-simple type="text"
                   formControlName="creditCardNumber" name="creditCardNumber"
-                  placeholder="Credit card number"
-                  required>
-      <err-required message="Credit card number is required"></err-required>
+                  placeholder="Credit card number">
     </input-simple>
   </div>
   <div>
@@ -43,9 +39,12 @@
           </button>
         </div>
       </div>
-      <div *ngIf="submitted && f.expirationTime.errors && f.expirationTime.errors.required" class="alert alert-danger">
-        Expiration date is required
-      </div>
     </div>
+  </div>
+  <div *ngIf="submitted && !creditCardForm.valid" class="alert alert-danger">
+    <div *ngIf="f.nameOnCard.errors?.required">Name on card is required</div>
+    <div *ngIf="f.type.errors?.required">Credit card type is required</div>
+    <div *ngIf="f.creditCardNumber.errors?.required">Credit card number is required</div>
+    <div *ngIf="f.expirationTime.errors?.required">Expiration date is required</div>
   </div>
 </ng-container>

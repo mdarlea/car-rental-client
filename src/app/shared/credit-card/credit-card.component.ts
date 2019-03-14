@@ -10,7 +10,10 @@ import { CreditCardModel } from '../models/credit-card.model';
 })
 export class CreditCardComponent implements OnInit {
   showDateOnly = true;
-  selectedCardTime: string;
+
+  get selectedCardTime() {
+    return (this.creditCardForm) ? this.getCardType(this.creditCardForm.get('type').value) : null;
+  }
 
   @Input()
   creditCardForm: FormGroup;
@@ -42,9 +45,25 @@ export class CreditCardComponent implements OnInit {
   ngOnInit() {
   }
 
-  setCardType(type: string, name: string) {
+  setCardType(event: Event, type: string) {
+    event.preventDefault();
     const control = this.creditCardForm.get('type');
     control.patchValue(type);
-    this.selectedCardTime = name;
+  }
+
+  preventDefault(event: Event) {
+    event.preventDefault();
+  }
+
+  private getCardType(type: string) {
+    if (type === 'VISA') {
+      return 'VISA';
+    }
+    if (type === 'MasterCard') {
+      return 'Master Card';
+    }
+    if (type === 'AmericanExpress') {
+      return 'American Express';
+    }
   }
 }

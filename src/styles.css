@@ -3114,27 +3114,6 @@ body,
 	visibility: visible;
 }
 
-input.ng-valid:not([type="checkbox"]),
-textarea.ng-valid,
-field.ng-valid input:not([type="checkbox"]),
-input-group.ng-valid input:not([type="checkbox"])
-{
-  border-left: 5px solid #42A948; /* green */
-}
-
-input.ng-invalid:not(.ng-pristine),
-textarea.ng-invalid:not(.ng-pristine),
-field.ng-invalid:not(.ng-pristine) input,
-input-group.ng-invalid:not(.ng-pristine) input
-{
-  border-left: 5px solid #a94442; /* red */
-}
-
-input-simple.ng-invalid.ng-pristine input,
-input-group.ng-invalid.ng-pristine input {
-  border-left: 1;
-}
-
 .card {
   background-color: transparent;
 }

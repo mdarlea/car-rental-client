@@ -12,6 +12,11 @@ export class DriverLicenseComponent implements OnInit {
   @Input()
   driverLicenseForm: FormGroup;
 
+  @Input()
+  submitted: boolean;
+
+  get f() { return this.driverLicenseForm.controls; }
+
   static buildDriverLicense(fb: FormBuilder, driverLicense: DriverLicenseModel): FormGroup {
     return fb.group({
       id: driverLicense.id,

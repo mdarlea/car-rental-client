@@ -11,7 +11,6 @@ import { CreditCardComponent } from '../../shared/credit-card/credit-card.compon
 import { CreditCardModel } from '../../shared/models/credit-card.model';
 import { AddressComponent } from '../../shared/address/address.component';
 import { AddressModel } from '../../shared/models/address.model';
-import { getFormValidationErrors } from '../../shared/get-form-validation-errors';
 import { CreateApplicationUserModel } from '../shared/create-application-user.model';
 import { AuthService } from '../shared/auth.service';
 
@@ -41,11 +40,11 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (!this.registerForm.valid) {
-      const errors = getFormValidationErrors(this.registerForm.controls);
+      return;
     }
     const model = _.cloneDeep(this.registerForm.value) as CreateApplicationUserModel;
     model.password = model.user.password;
-    model.creditCard.expirationTime = this.convertDate(model.creditCard.expirationTime);
+    model.creditCard.expirationTime = this.convertToDate(model.creditCard.expirationTime);
 
     this.processing = true;
     this.authSvc.register(model).subscribe(user => {
@@ -59,7 +58,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  private convertDate(date: any): string {
+  private convertToDate(date: any): string {
     return (date) ? (new Date(date.year, date.month - 1, date.day)).toLocaleDateString()
             : null;
   }

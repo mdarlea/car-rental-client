@@ -1,23 +1,18 @@
 <ng-container [formGroup]="addressForm">
-<div class="row">
-    <input-simple name="streetAddress"
+<input-simple name="streetAddress"
            formControlName="streetAddress"
-           class="col-sm-9 col-xs-12"
-           placeholder="Street Address"
-           required>
-      <err-required message="Street address is required"></err-required>
-    </input-simple>
+           placeholder="Street Address">
+</input-simple>
+<div class="row">
     <input-simple name="suiteNumber"
            formControlName="suiteNumber"
-           class="col-sm-3 col-xs-6"
+           class="col-sm-6"
            placeholder="Apt/Suite">
     </input-simple>
 </div>
 <input-simple name="city"
        formControlName="city"
-       placeholder="City"
-       required>
-  <err-required message="City is required"></err-required>
+       placeholder="City">
 </input-simple>
 <div class="row">
     <input-simple name="state"
@@ -28,11 +23,13 @@
     <input-simple name="zip"
            formControlName="zip"
            class="col-sm-6"
-           placeholder="Zip code"
-           required
-           maxlength="10">
-      <err-required message="Zip code is required"></err-required>
-      <err-maxlength message="Zip code cannot be longer than 10 characters"></err-maxlength>
+           placeholder="Zip code">
     </input-simple>
+</div>
+<div *ngIf="submitted && !addressForm.valid" class="alert alert-danger">
+    <div *ngIf="f.streetAddress.errors?.required">Street address is required</div>
+    <div *ngIf="f.city.errors?.required">City is required</div>
+    <div *ngIf="f.zip.errors?.required">Zip code is required</div>
+    <div *ngIf="f.zip.errors?.maxLength">Zip code cannot be longer than 10 characters</div>
 </div>
 </ng-container>

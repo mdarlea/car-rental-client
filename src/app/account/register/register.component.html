@@ -28,12 +28,16 @@
                           <ngb-accordion [closeOthers]="true" [activeIds]="activePanel">
                             <ngb-panel id="contact" title="Contact Details">
                               <ng-template ngbPanelContent>
-                                <app-user [userForm]="registerForm.get('user')"></app-user>
+                                <app-user [userForm]="registerForm.get('user')"
+                                          [submitted]="submitted">
+                                </app-user>
                               </ng-template>
                             </ngb-panel>
                             <ngb-panel id="driverLicense" title="Driver License">
                               <ng-template ngbPanelContent>
-                                <app-driver-license [driverLicenseForm]="registerForm.get('driverLicense')"></app-driver-license>
+                                <app-driver-license [driverLicenseForm]="registerForm.get('driverLicense')"
+                                                    [submitted]="submitted">
+                                </app-driver-license>
                               </ng-template>
                             </ngb-panel>
                             <ngb-panel id="creditCard" title="Credit Card">
@@ -42,7 +46,9 @@
                                                  [submitted]="submitted">
                                 </app-credit-card>
                                 <div class="text-info">Billing Address</div>
-                                <app-address [addressForm]="registerForm.get('billingAddress')"></app-address>
+                                <app-address [addressForm]="registerForm.get('billingAddress')"
+                                             [submitted]="submitted">
+                                </app-address>
                               </ng-template>
                             </ngb-panel>
                           </ngb-accordion>

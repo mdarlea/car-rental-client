@@ -2,9 +2,7 @@
   <div>
     <input-simple type="text"
                   formControlName="driverLicenseNumber" name="driverLicenseNumber"
-                  placeholder="Driver license number"
-                  required>
-      <err-required message="Driver license number is required"></err-required>
+                  placeholder="Driver license number">
     </input-simple>
   </div>
   <div>
@@ -16,9 +14,11 @@
   <div>
     <input-simple type="text"
                   formControlName="countryOfIssue" name="countryOfIssue"
-                  placeholder="Country of issue"
-                  required>
-      <err-required message="Country of issue is required"></err-required>
+                  placeholder="Country of issue">
     </input-simple>
+  </div>
+  <div *ngIf="submitted && !driverLicenseForm.valid" class="alert alert-danger">
+    <div *ngIf="f.driverLicenseNumber.errors?.required">Driver license number is required</div>
+    <div *ngIf="f.countryOfIssue.errors?.required">Country of issue is required</div>
   </div>
 </ng-container>
