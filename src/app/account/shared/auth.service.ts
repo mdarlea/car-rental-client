@@ -39,7 +39,7 @@ export class AuthService  {
             tap(u => {
               this.storeUser(u);
             }),
-            catchError(this.handleError('registerExternal', new AuthUser(null, null, null, null, null))));
+            catchError(this.handleError('register', new AuthUser(null, null, null, null, null), true)));
     }
 
     registerExternal(user: CreateExternalApplicationUserModel): Observable<AuthUser> {

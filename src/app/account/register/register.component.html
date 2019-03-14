@@ -44,6 +44,7 @@
                               </ng-template>
                             </ngb-panel>
                           </ngb-accordion>
+                          <app-spinner *ngIf="processing"></app-spinner>
                           <validation-errors [model-state]="modelState"></validation-errors>
 								          <div class="log-btn">
 									          <button type="submit" [disabled]="!registerForm.valid"><i class="fa fa-check-square"></i> Sign Up</button>
