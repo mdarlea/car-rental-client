@@ -43,6 +43,9 @@
           </button>
         </div>
       </div>
+      <div *ngIf="f.expirationTime.errors.required" class="alert alert-danger">
+        Expiration date is required
+      </div>
     </div>
   </div>
 </ng-container>

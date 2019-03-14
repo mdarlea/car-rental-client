@@ -5,7 +5,8 @@ import {
     RequiredValidator,
     MinLengthValidator,
     MaxLengthValidator,
-    PatternValidator
+    PatternValidator,
+    EmailValidator
 } from '@angular/forms';
 import { ValidationType, ValidationErrorComponent } from './validation-error.component'
 
@@ -62,6 +63,21 @@ export class MaxLengthValidationErrorComponent extends ValidationErrorComponent 
 })
 @ValidationType(PatternValidator)
 export class PatternValidationErrorComponent extends ValidationErrorComponent {
+    constructor(
+        @Host() control: NgControl,
+        @Host() @Inject(NG_VALIDATORS) validators: Array<Validator | ValidatorFn>) {
+        super(control, validators);
+    }
+}
+
+@Component({
+    selector: 'err-email',
+    template: `<div *ngIf="!isValid()" class="alert alert-danger">
+                    {{message}}
+                  </div>`
+})
+@ValidationType(PatternValidator)
+export class EmailValidationErrorComponent extends ValidationErrorComponent {
     constructor(
         @Host() control: NgControl,
         @Host() @Inject(NG_VALIDATORS) validators: Array<Validator | ValidatorFn>) {

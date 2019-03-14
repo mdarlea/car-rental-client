@@ -15,6 +15,8 @@ export class CreditCardComponent implements OnInit {
   @Input()
   creditCardForm: FormGroup;
 
+  get f() { return this.creditCardForm.controls; }
+
   static buildCreaditCard(fb: FormBuilder, creditCard: CreditCardModel): FormGroup {
     return fb.group({
       id: creditCard.id,
