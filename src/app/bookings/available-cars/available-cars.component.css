@@ -1,0 +1,110 @@
+/*== Article Area CSS Start ==*/
+
+.single-article {
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+	padding: 10px;
+	margin-bottom: 50px;
+	text-transform: uppercase;
+}
+
+.col-lg-12:last-child .single-article {
+	margin-bottom: 0;
+}
+
+.single-article .article-thumb {
+	margin: -10px;
+}
+
+.single-article.middle .article-thumb {
+	margin-right: -10px;
+}
+
+.article-thumb img {
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.single-article:hover .article-thumb img {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+}
+
+.article-body {
+	position: relative;
+}
+
+.article-body h3 a {
+	font-size: 20px;
+	color: #333;
+}
+
+.article-meta {
+	margin: 15px 0 10px;
+}
+
+.article-meta a {
+	color: #999;
+	font-size: 12px;
+	font-weight: 600;
+	margin-right: 25px;
+	-webkit-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+}
+
+.article-meta a span {
+	color: #ffd000;
+}
+
+.article-meta a:hover {
+	color: #ffd000;
+}
+
+.article-date {
+	background-color: darkblue;
+	border-radius: 3px;
+	color: #fff;
+	font-weight: 700;
+	height: 55px;
+	margin-top: -27px;
+	padding: 5px;
+	position: absolute;
+	text-align: center;
+	width: 65px;
+}
+
+.article-date .month {
+	display: block;
+}
+
+.article-body p {
+	color: #999;
+	line-height: 1.8;
+	text-transform: capitalize;
+}
+
+.readmore-btn {
+	background-color: #222;
+	color: #ffd000;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 700;
+	margin-top: 25px;
+	padding: 12px 25px;
+	-webkit-transition: all 0.4s ease 0s;
+	transition: all 0.4s ease 0s;
+}
+
+.readmore-btn i.fa {
+	margin-left: 5px;
+}
+
+.readmore-btn:focus,
+.readmore-btn:hover {
+	background-color: #ffd000;
+	color: #fff;
+}
+
+/*== Article Area CSS End ==*/

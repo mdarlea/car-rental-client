@@ -14,7 +14,7 @@ import { ExternalLoginInfoModel } from './external-login-info.model';
 
 @Injectable()
 export class AuthService  {
-    private route;
+    private route: string;
     private handleError: HandleError;
 
     constructor(private httpSvc: HttpClient,

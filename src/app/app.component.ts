@@ -1,4 +1,6 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError, NavigationCancel } from '@angular/router';
 import { LoaderService} from './core/services/loader.service';
 import { Settings } from './core/settings';
@@ -10,12 +12,15 @@ import { UserService} from './core/services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('headerArea') headerArea: ElementRef;
   @ViewChild('scrollTop') scrollTop: ElementRef;
   @ViewChild('mainmenu') mainmenu: ElementRef;
 
   fixTotop = false;
+  isLoggedIn = false;
+
+  private subscription: Subscription;
 
   constructor(private loaderSvc: LoaderService,
               private router: Router,
@@ -32,6 +37,15 @@ export class AppComponent implements AfterViewInit {
 
       router.events.subscribe((routerEvent: Event) => {
             this.checkRouterEvent(routerEvent);
+      });
+    }
+
+    ngOnInit() {
+      const user = this.userSvc.getUser();
+      this.isLoggedIn = !UserService.tokenIsExpired(user);
+
+      this.subscription = this.userSvc.userChanged$.subscribe(u => {
+        this.isLoggedIn = (u != null) && !UserService.tokenIsExpired(u);
       });
     }
 
@@ -63,6 +77,11 @@ export class AppComponent implements AfterViewInit {
 
     }
 
+    ngOnDestroy() {
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
+    }
     checkRouterEvent(routerEvent: Event): void {
         if (routerEvent instanceof NavigationStart) {
             this.loaderSvc.load(true);
@@ -94,11 +113,6 @@ export class AppComponent implements AfterViewInit {
           }
         });
       }
-    }
-
-    isLoggedIn(): boolean {
-      const user = this.userSvc.getUser();
-      return !UserService.tokenIsExpired(user);
     }
 
     scrollToTop() {

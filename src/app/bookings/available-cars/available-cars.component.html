@@ -1,0 +1,93 @@
+    <!--== Page Title Area Start ==-->
+    <section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Available Cars</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+            </div>
+        </div>
+    </section>
+    <!--== Page Title Area End ==-->
+    <div id="blog-page-content" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <!-- Single Articles Start -->
+          <div class="col-lg-12" *ngFor="let availableCar of availableCars | async">
+                    <article class="single-article">
+                        <div class="row">
+                            <!-- Articles Thumbnail Start -->
+                            <div class="col-lg-5">
+                                <div class="article-thumb">
+                                    <img [src]="availableCar.imageUrl" alt="JSOFT">
+                                </div>
+                             </div>
+                            <!-- Articles Thumbnail End -->
+
+                            <!-- Articles Content Start -->
+                            <div class="col-lg-7">
+                                <div class="display-table">
+                                    <div class="display-table-cell">
+                                        <div class="article-body">
+                                            <h3>
+                                              <a [routerLink]="['/bookings/available-car', availableCar.id]" routerLinkActive="active">
+                                                {{availableCar.name}}
+                                              </a>
+                                            </h3>
+
+                                            <div class="article-date">
+                                              {{availableCar.price | currency: 'EUR'}}
+                                            </div>
+
+                                            <div class="row">
+                                              <div class="col-md-6">{{availableCar.numberOfSeats}} Seats</div>
+                                              <div class="col-md-6">{{availableCar.numberOfDoors}} Doors</div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-md-6">{{availableCar.numberOfBags}} Bags</div>
+                                              <div class="col-md-6">{{availableCar.transmissionType}}</div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-md-6">
+                                                <span *ngIf="availableCar.hasPetrol">Petrol</span>
+                                                <span *ngIf="availableCar.hasPetrol && availableCar.hasDiesel">/</span>
+                                                <span *ngIf="availableCar.hasDiesel">Diesel</span>
+                                              </div>
+                                              <div class="col-md-6" *ngIf="availableCar.hasAirConditioning">Air Con</div>
+                                            </div>
+                                            <a [routerLink]="['/bookings/available-car', availableCar.id]" routerLinkActive="active" class="readmore-btn">
+                                              Continue <i class="fa fa-long-arrow-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Articles Content End -->
+                        </div>
+                    </article>
+          </div>
+          <!-- Single Articles End -->
+        </div>
+      </div>
+    </div>
+
+<ul class="timeline">
+  <li *ngFor="let availableCar of availableCars | async">
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <img class="img-responsive" [src]="availableCar.imageUrl" />
+      </div>
+      <div class="timeline-body">
+        <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+      </div>
+      <div class="timeline-footer">
+        <a class="pull-right">Book this car</a>
+      </div>
+    </div>
+  </li>
+</ul>

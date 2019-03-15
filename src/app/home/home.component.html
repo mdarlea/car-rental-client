@@ -6,12 +6,11 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="book-a-car">
-                            <form #form="ngForm">
+                            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
                                 <!--== Pick Up Date ==-->
                                 <div class="pick-up-date book-item">
                                     <h4>PICK-UP DATE:</h4>
                                     <time-picker name="startTime"
-                                        #startTimeControl="ngModel"
                                         [(ngModel)]="startTime"
                                         required
                                         [format]="{momentFormat:'lll'}">
