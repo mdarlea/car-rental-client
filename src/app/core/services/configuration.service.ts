@@ -24,7 +24,7 @@ export class ConfigurationService {
         observable.pipe(switchMap(
                       config => {
                         devConfig = config;
-                        return this.http.get<Configuration>('assets/configprod.txt');
+                        return this.http.get<Configuration>('assets/configprod.json');
                       })).subscribe(prodConfig => {
                           this.config.configuration = Object.assign(devConfig, prodConfig);
                           console.log(this.config);

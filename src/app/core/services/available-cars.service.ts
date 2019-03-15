@@ -30,6 +30,13 @@ export class AvailableCarsService extends BehaviorSubject<AvailableCarModel[]> {
       this.route = `${settings.configuration.url.availableCar}/`;
     }
 
+    get fromDate(): Date {
+      return this.fromSource.value;
+    }
+    get toDate(): Date {
+      return this.toSource.value;
+    }
+
     query(model: FindAvailableCarsModel) {
       this.loaderSvc.loadData(true);
       this.fetch(model).subscribe(addr => {

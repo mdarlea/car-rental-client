@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
                 this.router.navigate(['/']);
              } else {
                // navigates to the registration page
+               // ToDo: add new component and route
                this.router.navigate(['/account/registerexternal', result.provider, result.providerKey]);
              }
           }, error => this.modelState = error);

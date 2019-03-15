@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
   }
 
   private convertToDate(date: any): string {
-    return (date) ? (new Date(date.year, date.month - 1, date.day)).toLocaleDateString()
+    return (date) ? (new Date(date.year, date.month - 1, date.day)).toLocaleString()
             : null;
   }
 }

@@ -7,6 +7,7 @@ import { AvailableCarsComponent } from './available-cars/available-cars.componen
 import { AvailableCarService } from './shared/available-car.service';
 import { AvailableCarComponent } from './available-car/available-car.component';
 import { AvailableCarResolver } from './available-car/available-car-resolver.service';
+import { BookingService } from './shared/booking.service';
 
 @NgModule({
   declarations: [AvailableCarsComponent, AvailableCarComponent],
@@ -16,7 +17,8 @@ import { AvailableCarResolver } from './available-car/available-car-resolver.ser
   ],
   providers: [
     AvailableCarService,
-    AvailableCarResolver
+    AvailableCarResolver,
+    BookingService
   ]
 })
 export class BookingsModule { }

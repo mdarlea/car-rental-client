@@ -17,7 +17,10 @@
     <!--== Page Title Area End ==-->
     <section id="car-list-area" class="section-padding">
       <div class="container">
-        <ng-container *ngIf="!hasError && availableCar">
+        <div *ngIf="bookingComplete" class="card">
+          Booking Complete
+        </div>
+        <ng-container *ngIf="!hasError && availableCar && !bookingComplete">
         <div class="row">
                  <!-- Car List Content Start -->
                 <div class="col-lg-8">
@@ -69,7 +72,8 @@
 
                             <div class="review-area">
                                 <div class="review-form">
-                                    <form action="index.html">
+                                    <form  #form="ngForm" (ngSubmit)="onSubmit()" >
+                                        <app-spinner *ngIf="processing"></app-spinner>
                                         <div class="input-submit">
                                             <button type="submit">Book this car</button>
                                         </div>

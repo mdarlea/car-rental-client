@@ -2,7 +2,8 @@
   "apiBaseUrl" : "https://localhost:44320",
   "url": {
     "auth": "api/auth",
-    "availableCar": "api/availablecar"
+    "availableCar": "api/availablecar",
+    "booking": "api/booking"
   },
   "facebook": {
     "appId": "822182081727248"
