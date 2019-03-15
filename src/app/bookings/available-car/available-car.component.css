@@ -1,0 +1,91 @@
+/*==============================
+    Car Details Page Css Start
+================================*/
+
+.car-details-content h2 {
+	border-bottom: 1px solid #ffd000;
+	font-weight: 400;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+.car-details-content h2 span {
+	float: right;
+	font-size: 18px;
+}
+
+.car-details-info {
+	color: #666;
+	line-height: 2;
+	padding-top: 30px;
+}
+
+.car-details-info h4 {
+	color: #000;
+	font-size: 20px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.technical-info {
+	margin-top: 30px;
+}
+
+.tech-info-list li {
+	float: left;
+	position: relative;
+	width: 33.333%;
+}
+
+.tech-info-list ul {
+	line-height: 5;
+	overflow: hidden;
+}
+
+.tech-info-list li::before {
+	color: #fab702;
+	content: "\f058";
+	font-family: FontAwesome;
+	margin-right: 15px;
+}
+
+.car-preview-crousel .owl-dots {
+	background-color: rgba(0, 0, 0, 0.5);
+	margin-top: -33px;
+	padding: 5px;
+	position: relative;
+	text-align: center;
+	z-index: 99;
+}
+
+.car-preview-crousel .owl-dots div {
+	background-color: #fff;
+	border-radius: 50%;
+	display: inline-block;
+	height: 10px;
+	margin-right: 5px;
+	width: 10px;
+}
+
+.car-preview-crousel .owl-dots div.active {
+	background-color: #ffd000;
+}
+
+.review-area {
+	margin-top: 50px;
+}
+
+.review-area h3 {
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.review-star {
+	margin: 20px 0;
+}
+
+.review-star .rating {
+	font-size: 20px;
+	position: inherit;
+}
+

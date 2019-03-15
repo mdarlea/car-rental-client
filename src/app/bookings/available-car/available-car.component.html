@@ -1,3 +1,88 @@
-<div *ngIf="!hasError">
-</div>
-<validation-errors [model-state]="modelState"></validation-errors>
+
+    <!--== Page Title Area Start ==-->
+    <section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Book Car</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+            </div>
+        </div>
+    </section>
+    <!--== Page Title Area End ==-->
+    <section id="car-list-area" class="section-padding">
+      <div class="container">
+        <ng-container *ngIf="!hasError && availableCar">
+        <div class="row">
+                 <!-- Car List Content Start -->
+                <div class="col-lg-8">
+                    <div class="car-details-content">
+                        <h2>{{availableCar.car.name}} <span class="price">Rent: <b>{{availableCar.price | currency: 'EUR'}}</b></span></h2>
+                        <div class="car-preview-crousel">
+                            <div class="single-car-preview">
+                                <img [src]="availableCar.car.imageUrl" alt="JSOFT">
+                            </div>
+                        </div>
+                        <div class="car-details-info">
+                            <h4>From {{from | async | date: 'short'}} to {{to | async | date: 'short'}}</h4>
+
+                            <div class="technical-info">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="tech-info-table">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Fuel</th>
+                                                    <td>
+                                                      <span *ngIf="availableCar.car.hasPetrol">Petrol</span>
+                                                      <span *ngIf="availableCar.car.hasPetrol && availableCar.car.hasDiesel">/</span>
+                                                      <span *ngIf="availableCar.car.hasDiesel">Diesel</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Doors</th>
+                                                    <td>{{availableCar.car.numberOfDoors}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GearBox</th>
+                                                    <td>{{availableCar.car.transmissionType}}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="tech-info-list">
+                                            <ul>
+                                                <li *ngIf="availableCar.car.hasAirConditioning">Air Con</li>
+                                                <li *ngIf="availableCar.car.numberOfBags > 0">Air Bags</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="review-area">
+                                <div class="review-form">
+                                    <form action="index.html">
+                                        <div class="input-submit">
+                                            <button type="submit">Book this car</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Car List Content End -->
+        </div>
+        </ng-container>
+        <validation-errors [model-state]="modelState"></validation-errors>
+      </div>
+    </section>
+

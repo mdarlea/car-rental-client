@@ -1,7 +1,7 @@
 import {catchError, map} from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable ,  BehaviorSubject} from 'rxjs';
+import { Observable , BehaviorSubject, Subject } from 'rxjs';
 
 import { AvailableCarModel } from '../models/available-car.model';
 import { FindAvailableCarsModel } from '../models/find-available-cars.model';
@@ -13,8 +13,13 @@ import { Settings} from '../../core/settings';
   providedIn: 'root'
 })
 export class AvailableCarsService extends BehaviorSubject<AvailableCarModel[]> {
+    private fromSource = new BehaviorSubject<Date>(null);
+    private toSource = new BehaviorSubject<Date>(null);
     private route: string;
     private handleError: HandleError;
+
+    from$ = this.fromSource.asObservable();
+    to$ = this.toSource.asObservable();
 
     constructor(private settings: Settings,
                 private http: HttpClient,
@@ -29,6 +34,10 @@ export class AvailableCarsService extends BehaviorSubject<AvailableCarModel[]> {
       this.loaderSvc.loadData(true);
       this.fetch(model).subscribe(addr => {
         super.next(addr);
+
+        this.fromSource.next(new Date(model.from));
+        this.toSource.next(new Date(model.to));
+
         this.loaderSvc.loadData(false);
       }, error => {
         this.loaderSvc.loadData(false);

@@ -12,6 +12,7 @@ import { AvailableCarModel } from '../../core/models/available-car.model';
 export class AvailableCarsComponent implements OnInit {
   availableCars: Observable<AvailableCarModel[]>;
 
+
   constructor(availableCarsSvc: AvailableCarsService) {
     this.availableCars = availableCarsSvc;
   }

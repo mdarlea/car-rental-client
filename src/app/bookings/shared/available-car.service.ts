@@ -19,7 +19,7 @@ export class AvailableCarService {
   }
 
   findById(id: number): Observable<AvailableCar> {
-    const url = `${this.route}/${id}`;
+    const url = `${this.route}${id}`;
 
     return this.http.get<AvailableCar>(url).pipe(catchError(this.handleError('fetch', new AvailableCar(), true)));
   }
